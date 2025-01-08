@@ -16,7 +16,17 @@ Make a clear list of features that work/dont work
 :beetle: This is a bug that affects the game.
 
 
+
 ## Adventurer Subclasses
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
+replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well
 
+- Healer
+  - Bandage Launcher (Regular Attack)
+     - Heals 3-5 HP of selected ally
+  - Heal Ring (Special)
+     -Grants Regeneration status effect to all allys for 2 turns
+        - Regeneration heals 2 HP per turn when applied to entity
+  - 
+- Tank
+- 
