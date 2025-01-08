@@ -22,11 +22,16 @@ Make a clear list of features that work/dont work
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well
 
 - Healer
-  - Bandage Launcher (Regular Attack)
+  - Bandage Launcher (Regular Heal)
      - Heals 3-5 HP of selected ally
   - Heal Ring (Special)
      -Grants Regeneration status effect to all allys for 2 turns
         - Regeneration heals 2 HP per turn when applied to entity
-  - 
-- Tank
-- 
+- Tank (x1.7 HP)
+  - Punch ( Regular attack)
+    - Deals 2-4 damage
+  - Body Slam ( Special)
+    - Has 50% chance to Paralyze opponent over three turns and deals 12 damage
+        - Paralyze cause opponent to have an 80% chance of a failed attack
+- Batman ( x2 HP)
+   - C 
