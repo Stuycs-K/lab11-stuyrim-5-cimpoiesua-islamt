@@ -25,11 +25,13 @@ replace this with your documentation for your two Adventurer subclasses. If you 
   - Bandage Launcher (Regular Heal)
      - Heals 3-5 HP of selected ally
   - Heal Ring (Special (12 special points))
-     -Grants Regeneration status effect to all allys for 2 turns
+     - Grants Regeneration status effect to all allys for 2 turns
         - Regeneration heals 2 HP per turn when applied to entity as well as 1 of their special points per turn
+          - Removes all current debuffs
 - Tank (x1.7 HP)
   - Punch ( Regular attack)
     - Deals 2-4 damage
+      - Has a 10% chance to miss
   - Body Slam ( Special (15 special points))
     - Has 50% chance to Paralyze opponent over three turns and deals 12 damage
         - Paralyze cause opponent to have an 80% chance of a failed attack
