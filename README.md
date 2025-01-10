@@ -33,5 +33,5 @@ replace this with your documentation for your two Adventurer subclasses. If you 
     - Deals 2-4 damage
       - Has a 10% chance to miss
   - Body Slam ( Special (15 special points))
-    - Has 50% chance to Paralyze opponent over three turns and deals 12 damage
+    - Has 50% chance to Paralyze opponent over three turns and deals 12 or 13 damage
         - Paralyze cause opponent to have an 80% chance of a failed attack
