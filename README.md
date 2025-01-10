@@ -35,3 +35,7 @@ replace this with your documentation for your two Adventurer subclasses. If you 
   - Body Slam ( Special (15 special points))
     - Has 50% chance to Paralyze opponent over three turns and deals 12 or 13 damage
         - Paralyze cause opponent to have an 80% chance of a failed attack
+  - Inspiration ( Support)
+    - Restores 2 special points and makes them deal 50% more damage next turn
+  - Self-Inspiration (self-support)
+    - Restores 4 special points and restores 3 hp
