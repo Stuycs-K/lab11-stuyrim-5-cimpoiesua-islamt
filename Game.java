@@ -100,14 +100,16 @@ public class Game{
 
     //draw player party
 
+
     //draw enemy party
 
   }
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-
+      Text.go(0,0);
       //show cursor
+      Text.showCursor();
 
       String input = in.nextLine();
 
