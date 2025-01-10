@@ -28,6 +28,10 @@ replace this with your documentation for your two Adventurer subclasses. If you 
      - Grants Regeneration status effect to all allys for 2 turns
         - Regeneration heals 2 HP per turn when applied to entity as well as 1 of their special points per turn
           - Removes all current debuffs
+  - Support
+    - Removes all current debuffs and restores 3 special points
+  - Self support
+    - Heals 5 hp and 3 special points
 - Tank (x1.7 HP)
   - Punch ( Regular attack)
     - Deals 2-4 damage
