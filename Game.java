@@ -13,7 +13,20 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    Text.go(1,1);
+    for(int i =0; i < 80; i++) {
+    System.out.print("-");
+  }
+    for (int i =2; i < 30; i++) {
+      Text.go(1,i);
+      System.out.println("|"")
+        Text.go(80,i);
+      System.out.println("|"")
+      }
+   Text.go(1,30)
+   for(int i =0; i < 80; i++) {
+   System.out.print("-");
+      }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -63,7 +76,7 @@ public class Game{
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
 
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
+
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
