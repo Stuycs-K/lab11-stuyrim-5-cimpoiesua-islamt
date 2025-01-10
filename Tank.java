@@ -11,4 +11,17 @@ public class Tank extends Adventurer{
   public String getSpecial(){
     return food;
   }
+  public void setSpecial(int n){
+    food = n;
+  }
+  public int getSpecialMax(){
+    return foodMax;
+  }
+  public String attack(Adventurer other){
+    int damage = (int)(Math.random()*3)+2;
+    other.applyDamage(damage);
+    restoreSpecial(2);
+    return this + " punched "+ other + " and dealt "+ damage +
+    " points of damage.";
+  }
 }
