@@ -8,8 +8,8 @@ public class Tester {
     System.out.println(Game.colorByPercent(2,4));
     System.out.println(Game.colorByPercent(1,5));
     */
-     Game.drawBackground();
-     /*Game.drawText("ajfjsaljf", 1 ,3);
-     Game.drawText("ajfjsaljf", 2 ,4);*/
+     //Game.drawBackground();
+     Game.drawText("ajfjsaljf", 1 ,3);
+     Game.drawText("ajfjsaljf", 2 ,4);
   }
 }
