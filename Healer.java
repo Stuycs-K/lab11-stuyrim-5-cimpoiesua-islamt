@@ -23,6 +23,7 @@ public class Healer extends Adventurer{
     return this + " healed "+ other + " and healed "+ damage +
     " health points.";
   }
+  //public void regeneration()
   public String specialAttack(Adventurer other){
   if(getSpecial() >= 12){
     setSpecial(getSpecial()-12);
@@ -32,4 +33,8 @@ public class Healer extends Adventurer{
       return "Not enough spirits for Heal Ring. Find some more!";
     }
   }
+  public String support(Adventurer other){
+    return "cleared all debuffs and restored 3 " +other.restoreSpecial(3) + " "
+     other.getSpecialName();
+   }
 }
