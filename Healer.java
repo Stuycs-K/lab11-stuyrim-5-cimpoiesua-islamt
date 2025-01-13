@@ -17,5 +17,11 @@ public class Healer extends Adventurer{
   public int getSpecialMax(){
     return spiritsmax;
   }
-
+  public String attack(Adventurer other){
+    int healing = -1 * (int)(Math.random()*3)+3;
+    other.applyDamage(healing);
+    return this + " healed "+ other + " and healed "+ damage +
+    " health points.";
+    }
+  }
 }
