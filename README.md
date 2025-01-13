@@ -31,7 +31,7 @@ replace this with your documentation for your two Adventurer subclasses. If you 
   - Support
     - Removes all current debuffs and restores 3 special points
   - Self support
-    - Heals 5 hp and 3 special points
+    - 75% chance to heal 5 hp and 3 special points
 - Tank (x1.7 HP)
   - Punch ( Regular attack)
     - Deals 2-4 damage
