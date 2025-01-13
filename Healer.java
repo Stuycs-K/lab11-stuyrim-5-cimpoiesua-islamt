@@ -22,6 +22,14 @@ public class Healer extends Adventurer{
     other.applyDamage(healing);
     return this + " healed "+ other + " and healed "+ damage +
     " health points.";
+  }
+  public String specialAttack(Adventurer other){
+  if(getSpecial() >= 12){
+    setSpecial(getSpecial()-12);
+    //regeneration(2);
+    return this + " applied regeneration for two turns points of damage.";
+    }else{
+      return "Not enough spirits for Heal Ring. Find some more!";
     }
   }
 }
