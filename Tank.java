@@ -3,12 +3,12 @@ public class Tank extends Adventurer{
   public Tank(String name, int hp){
     super(name,hp);
     foodMax = 18;
-    caffeine = caffeineMax/2 + 1;
+    food = foodMax/2 + 1;
   }
   public String getSpecialName(){
     return "food";
   }
-  public String getSpecial(){
+  public int getSpecial(){
     return food;
   }
   public void setSpecial(int n){
@@ -18,7 +18,7 @@ public class Tank extends Adventurer{
     return foodMax;
   }
   public String attack(Adventurer other){
-    if(Math.random >= 0.1){
+    if(Math.random() >= 0.1){
     int damage = (int)(Math.random()*3)+2;
     other.applyDamage(damage);
     restoreSpecial(2);
@@ -35,8 +35,18 @@ public class Tank extends Adventurer{
     int damage = (int)(Math.random()*2)+12;
     other.applyDamage(damage);
     return this + " body slammed on "+other+
-+ " dealing "+ damage +" points of damage.";
+    " dealing "+ damage +" points of damage.";
     }else{
       return "Not enough food to body slam. Get to eating!"+attack(other);
+    }
+  }
+  public String support(Adventurer other){
+    return "Inspired "+other+" and restores "
+    + other.restoreSpecial(2)+" "+other.getSpecialName();
+  }
+  public String support(){
+    setHP(getHP() + 3);
+    restoreSpecial(4);
+    return this + " ate enough food that 3 hp was restored. " + "4 " + getSpecialName()+ " was also restored";
   }
 }
