@@ -37,4 +37,12 @@ public class Healer extends Adventurer{
     return "cleared all debuffs and restored 3 " +other.restoreSpecial(3) + " "
      other.getSpecialName();
    }
+   public String support(){
+     if(Math.random() >= 0.1){
+       setHP(getHP() + 5);
+       restoreSpecial(3);
+       return this + " found some spirits in a field. They restored 5 HP and 3 Spirits.";
+     }
+     return "self-support failed :(.";
+   }
 }
