@@ -11,4 +11,11 @@ public class Healer extends Adventurer{
   public int getSpecial(){
     return spirits;
   }
+  public void setSpecial(int n){
+    spirits = n;
+  }
+  public int getSpecialMax(){
+    return spiritsmax;
+  }
+
 }
