@@ -21,17 +21,18 @@ public class Game {
       Text.go(1, i);
       System.out.print("-");
     }
-    for (int i = 2; i < 30; i++) {
+    for (int i = 2; i < HEIGHT; i++) {
       Text.go(i, 1);
       System.out.print("|");
       Text.go(i, 80);
       System.out.print("|");
     }
-    Text.go(1, 30);
+    Text.go(1, HEIGHT);
     for (int i = 0; i < 80; i++) {
-      Text.go(30, i);
+      Text.go(HEIGHT, i);
       System.out.print("-");
     }
+
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
   }
 
@@ -52,13 +53,13 @@ public class Game {
    * for up to height lines.
    * All remaining locations in the text box should be written with spaces to
    * clear previously written text.
-   * 
+   *
    * @param row the row to start the top left corner of the text box.
-   * 
+   *
    * @param col the column to start the top left corner of the text box.
-   * 
+   *
    * @param width the number of characters per row
-   * 
+   *
    * @param height the number of rows
    */
   public static void TextBox(int row, int col, int width, int height, String text) {
