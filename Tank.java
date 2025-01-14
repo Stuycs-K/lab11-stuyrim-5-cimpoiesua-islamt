@@ -1,5 +1,7 @@
 public class Tank extends Adventurer {
   int food, foodMax;
+  boolean isRegenerating, isParalyzed;
+  int turnregens, turnparalyze;
 
   public Tank(String name, int hp) {
     super(name, (int) 1.7 * hp);
