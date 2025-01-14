@@ -106,6 +106,7 @@ public class Game {
   // return a random adventurer (choose between all available subclasses)
   // feel free to overload this method to allow specific names/stats.
   public static Adventurer createRandomAdventurer() {
+    return new CodeWarrior("Bob" + (int) (Math.random() * 100));
     if (Math.random() <= 0.33) {
     return new CodeWarrior("Bob" + (int) (Math.random() * 100), 100);
     }
@@ -123,7 +124,7 @@ public class Game {
    * Note there is one blank row reserved for your use if you choose.
    * Format:
    * Bob Amy Jun
-   * HP: 10 HP: 15 HP:19
+   * HP: 10 HP: 15 HP: 19
    * Caffeine: 20 Mana: 10 Snark: 1
    * ***THIS ROW INTENTIONALLY LEFT BLANK***
    */
@@ -131,7 +132,15 @@ public class Game {
 
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-    String nameDisp = ""
+    String nameDisp = "";
+    String hpDisp = "";
+    String specialDisp ="";
+
+    for(int i =0; i < party.size(); i++) {
+        nameDisp += party.get(i).getName() + " ";
+        hpDisp = "HP: " + colorByPercent(party.get(i).getHP()) + " ";
+        specialDisp = party.get(i).getSpecialName() + "; " + String.format("%2s", party.get(i).getSpecial());
+    }
 
 
 
