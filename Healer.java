@@ -45,4 +45,11 @@ public class Healer extends Adventurer{
      }
      return "self-support failed :(.";
    }
+   public void regeneration(Adventurer target, int turns) {
+     for (int i = 0; i < turns; i++) {
+        target.setHP(target.getHP() + 2);
+        target.restoreSpecial(1);
+     }
+   }
+   
 }
