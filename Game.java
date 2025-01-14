@@ -21,15 +21,17 @@ public class Game {
       Text.go(1, i);
       System.out.print("-");
     }
-    for (int i = 2; i < HEIGHT; i++) {
+    for (int i = 2; i < HEIGHT + 1; i++) {
       Text.go(i, 1);
       System.out.print("|");
       Text.go(i, 80);
       System.out.print("|");
     }
     Text.go(1, HEIGHT);
-    for (int i = 0; i < 80; i++) {
-      Text.go(HEIGHT, i);
+    for (int i = 2; i < 80; i++) {
+      Text.go(HEIGHT -4, i);
+      System.out.print("-");
+      Text.go(HEIGHT , i);
       System.out.print("-");
     }
 
