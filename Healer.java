@@ -58,12 +58,14 @@ public class Healer extends Adventurer {
   }
 
   public void regeneration(Adventurer target, int turns) {
-    for (int i = 0; i < turns; i++) {
+     if (turns > 0) {
       target.setHP(target.getHP() + 2);
       target.restoreSpecial(1);
+      turns--;
     }
   }
-  public boolean getisRegen(Adventurer) {
+
+  public boolean getisRegen() {
     return isRegenerating;
   }
 

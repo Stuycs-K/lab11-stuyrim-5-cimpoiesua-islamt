@@ -60,12 +60,22 @@ public class Tank extends Adventurer {
     return this + " ate enough food that 3 hp was restored. " + "4 " + getSpecialName() + " was also restored";
   }
 
-  public String paralyze(Adventurer other) {
-    if (Math.random() <= 0.5) {
+  public String paralyze(Adventurer other, int turns) {
+    if (Math.random() <= 0.5 && turns == 0) {
       // other.Paralyze()
       return this + " paralyzed " + other + " for three turns.";
-    } else {
+    } else if (turns > 0) {
       return this + " tried to paralyze " + other + " but failed.";
     }
+    return "";
   }
+
+  public boolean getisRegen() {
+    return isRegenerating;
+  }
+
+  public boolean getisParalyzed() {
+    return isParalyzed;
+  }
+
 }
