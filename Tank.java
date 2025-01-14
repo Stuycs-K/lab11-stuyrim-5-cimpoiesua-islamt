@@ -1,7 +1,7 @@
 public class Tank extends Adventurer{
   int food, foodMax;
   public Tank(String name, int hp){
-    super(name,hp);
+    super(name,1.7 * hp);
     foodMax = 18;
     food = foodMax/2 + 1;
   }
@@ -48,5 +48,13 @@ public class Tank extends Adventurer{
     setHP(getHP() + 3);
     restoreSpecial(4);
     return this + " ate enough food that 3 hp was restored. " + "4 " + getSpecialName()+ " was also restored";
+  }
+  public String paralyze(Adventurer other) {
+    if (Math.random() <= 0.5) {
+        //other.Paralyze()
+        return this + " paralyzed " + other + " for three turns.";
+    } else {
+        return this + " tried to paralyze " + other + " but failed.";
+    }
   }
 }
