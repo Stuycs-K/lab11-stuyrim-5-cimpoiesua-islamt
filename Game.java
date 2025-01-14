@@ -85,7 +85,11 @@ public class Game {
         currentRow++;
         if (currentRow >= height)
           return;
-        currentLine = word.length() <= width ? word : "";
+          if (word.length () <= width) {
+            currentLine = word;
+          } else {
+            currentLine = "";
+          }
       }
     }
 
