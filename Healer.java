@@ -1,5 +1,7 @@
 public class Healer extends Adventurer {
   int spirits, spiritsmax;
+  boolean isRegenerating, isParalyzed;
+  int turnregens, turnparalyze;
 
   public Healer(String name, int hp) {
     super(name, hp);
@@ -26,7 +28,7 @@ public class Healer extends Adventurer {
   public String attack(Adventurer other) {
     int healing = -1 * (int) (Math.random() * 3) + 3;
     other.applyDamage(healing);
-    return this + " healed " + other + " and healed " + damage +
+    return this + " healed " + other + " and healed " + healing * -1 +
         " health points.";
   }
 
@@ -42,7 +44,7 @@ public class Healer extends Adventurer {
   }
 
   public String support(Adventurer other) {
-    return "cleared all debuffs and restored 3 " + other.restoreSpecial(3) + " ";
+    return "cleared all debuffs and restored 3 " + other.restoreSpecial(3) + " "+
     other.getSpecialName();
   }
 
@@ -56,10 +58,19 @@ public class Healer extends Adventurer {
   }
 
   public void regeneration(Adventurer target, int turns) {
-    for (int i = 0; i < turns; i++) {
+     if (turns > 0) {
       target.setHP(target.getHP() + 2);
       target.restoreSpecial(1);
+      turns--;
     }
+  }
+
+  public boolean getisRegen() {
+    return isRegenerating;
+  }
+
+  public boolean getisParalyzed() {
+    return isParalyzed;
   }
 
 }
