@@ -142,6 +142,7 @@ public class Game {
         specialDisp = party.get(i).getSpecialName() + "; " + String.format("%2s", party.get(i).getSpecial());
     }
 
+    drawText()
 
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
