@@ -137,11 +137,23 @@ public class Game {
 
     for(int i =0; i < party.size(); i++) {
         nameDisp += party.get(i).getName() + " ";
+<<<<<<< HEAD
         hpDisp = "HP: " + colorByPercent(party.get(i).getHP(), party.get(i).getSpecialMax() ) + " ";
         specialDisp = party.get(i).getSpecialName() + "; " + String.format("%2s", party.get(i).getSpecial());
+=======
+        hpDisp = "HP: " + colorByPercent(party.get(i).getHP()) + " ";
+        specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
+>>>>>>> a3fa1352070cf55200033e5c6afec622ae67aee1
     }
+    //printer
+    drawText(nameDisp,startRow, 2);
+    drawText(hpDisp,startRow +1, 2);
+    drawText(specialDisp,startRow +2, 2);
 
+<<<<<<< HEAD
     //drawText();
+=======
+>>>>>>> a3fa1352070cf55200033e5c6afec622ae67aee1
 
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -212,10 +224,7 @@ public class Game {
 
   ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-    int enemiessize = (int) Math.random() * 3 + 1;
-    for (int i = 0; i < enemiessize; i++){
-      enemies.add(createRandomAdventurer());
-    }
+    // YOUR CODE HERE
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
     // Adventurers you control:
