@@ -108,7 +108,6 @@ public class Game {
   // return a random adventurer (choose between all available subclasses)
   // feel free to overload this method to allow specific names/stats.
   public static Adventurer createRandomAdventurer() {
-    return new CodeWarrior("Bob" + (int) (Math.random() * 100));
     if (Math.random() <= 0.33) {
     return new CodeWarrior("Bob" + (int) (Math.random() * 100), 100);
     }
@@ -140,14 +139,23 @@ public class Game {
 
     for(int i =0; i < party.size(); i++) {
         nameDisp += party.get(i).getName() + " ";
+<<<<<<< HEAD
+        hpDisp = "HP: " + colorByPercent(party.get(i).getHP(), party.get(i).getSpecialMax() ) + " ";
+        specialDisp = party.get(i).getSpecialName() + "; " + String.format("%2s", party.get(i).getSpecial());
+=======
         hpDisp = "HP: " + colorByPercent(party.get(i).getHP()) + " ";
         specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
+>>>>>>> a3fa1352070cf55200033e5c6afec622ae67aee1
     }
     //printer
     drawText(nameDisp,startRow, 2);
     drawText(hpDisp,startRow +1, 2);
     drawText(specialDisp,startRow +2, 2);
 
+<<<<<<< HEAD
+    //drawText();
+=======
+>>>>>>> a3fa1352070cf55200033e5c6afec622ae67aee1
 
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -181,11 +189,17 @@ public class Game {
 
     drawBackground();
 
+<<<<<<< HEAD
     // draw player party
     drawParty(party, 2);
 
     // draw enemy party
     drawParty(enemies,7);
+=======
+    //drawParty(party, idk yet);
+
+    //drawParty(enemies, idk yet);
+>>>>>>> 93289343b574e050e6c98e069e20bf8738c850a0
 
   }
 
