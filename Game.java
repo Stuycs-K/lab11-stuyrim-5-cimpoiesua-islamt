@@ -31,6 +31,8 @@ public class Game {
     for (int i = 2; i < 80; i++) {
       Text.go(HEIGHT -4, i);
       System.out.print("-");
+      Text.go(5,i);
+      System.out.print("-");
       Text.go(HEIGHT , i);
       System.out.print("-");
     }
@@ -180,8 +182,10 @@ public class Game {
     drawBackground();
 
     // draw player party
+    drawParty(party, 2);
 
     // draw enemy party
+    drawParty(enemies,7);
 
   }
 
