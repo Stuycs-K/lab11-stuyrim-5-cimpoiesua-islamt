@@ -178,13 +178,15 @@ public class Game {
   // Do not write over the blank areas where text will appear.
   // Place the cursor at the place where the user will by typing their input at
   // the end of this method.
-  public static void drawScreen() {
+  public static void drawScreen( ArrayList<Adventurer> party, ArrayList<Adventurer> enemy ) {
 
     drawBackground();
 
     // draw player party
+    drawParty(party, 2);
 
     // draw enemy party
+    drawParty(enemy, 7);
 
   }
 
@@ -241,7 +243,7 @@ public class Game {
     // Draw the window border
 
     // You can add parameters to draw screen!
-    drawScreen();// initial state.
+    drawScreen( party, enemies);// initial state.
 
     // Main loop
 
@@ -322,7 +324,7 @@ public class Game {
       }
 
       // display the updated screen after input has been processed.
-      drawScreen();
+      drawScreen( party, enemies);
 
     } // end of main game loop
 
