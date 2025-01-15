@@ -260,23 +260,22 @@ public class Game {
 
       // display event based on last turn's input
       if (partyTurn) {
-
+        String [] attackenemy = input.split(" ");
+        String enemytoattack = attackenemy[1];
         // Process user input for the last Adventurer:
         if (input.startsWith("attack") || input.startsWith("a")) {
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-          String [] attackenemy = input.split(" ");
-          String enemytoattack = attackenemy[1];
           party.get(whichPlayer).attack(enemies.get(Integer.parseInt(enemytoattack)));
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
         } else if (input.startsWith("special") || input.startsWith("sp")) {
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-          // YOUR CODE HERE
+          party.get(whichPlayer).specialAttack(enemies.get(Integer.parseInt(enemytoattack)));
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
         } else if (input.startsWith("su ") || input.startsWith("support ")) {
           // "support 0" or "su 0" or "su 2" etc.
           // assume the value that follows su is an integer.
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-          // YOUR CODE HERE
+          party.get(whichPlayer).support(enemies.get(Integer.parseInt(enemytoattack)));
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
         }
 
