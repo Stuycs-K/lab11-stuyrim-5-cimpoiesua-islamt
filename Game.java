@@ -5,6 +5,8 @@ public class Game {
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
+  private static ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+  private static ArrayList<Adventurer> party = new ArrayList<>();
 
   public static void main(String[] args) {
     run();
@@ -178,7 +180,7 @@ public class Game {
   // Do not write over the blank areas where text will appear.
   // Place the cursor at the place where the user will by typing their input at
   // the end of this method.
-  public static void drawScreen( ArrayList<Adventurer> party, ArrayList<Adventurer> enemy ) {
+  public static void drawScreen() {
 
     drawBackground();
 
@@ -186,7 +188,7 @@ public class Game {
     drawParty(party, 2);
 
     // draw enemy party
-    drawParty(enemy, 7);
+    drawParty(enemies, 7);
 
   }
 
@@ -243,7 +245,7 @@ public class Game {
     // Draw the window border
 
     // You can add parameters to draw screen!
-    drawScreen( party, enemies);// initial state.
+    drawScreen();// initial state.
 
     // Main loop
 
@@ -324,7 +326,7 @@ public class Game {
       }
 
       // display the updated screen after input has been processed.
-      drawScreen( party, enemies);
+      drawScreen();
 
     } // end of main game loop
 
