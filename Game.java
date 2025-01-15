@@ -139,10 +139,13 @@ public class Game {
     for(int i =0; i < party.size(); i++) {
         nameDisp += party.get(i).getName() + " ";
         hpDisp = "HP: " + colorByPercent(party.get(i).getHP()) + " ";
-        specialDisp = party.get(i).getSpecialName() + "; " + String.format("%2s", party.get(i).getSpecial());
+        specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
     }
+    //printer
+    drawText(nameDisp,startRow, 2);
+    drawText(hpDisp,startRow +1, 2);
+    drawText(specialDisp,startRow +2, 2);
 
-    drawText()
 
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
