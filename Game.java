@@ -33,6 +33,8 @@ public class Game {
       System.out.print("-");
       Text.go(5,i);
       System.out.print("-");
+      Text.go(9,i);
+      System.out.print("-");
       Text.go(HEIGHT , i);
       System.out.print("-");
     }
