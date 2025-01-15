@@ -258,11 +258,13 @@ public class Game {
       if (partyTurn) {
 
         // Process user input for the last Adventurer:
-        if (input.equals("attack") || input.equals("a")) {
+        if (input.startsWith("attack") || input.startsWith("a")) {
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-          // YOUR CODE HERE
+          String [] attackenemy = input.split(" ");
+          String enemytoattack = attackenemy[1];
+          party.get(whichPlayer).attack(enemies.get(Integer.parseInt(enemytoattack)));
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-        } else if (input.equals("special") || input.equals("sp")) {
+        } else if (input.startsWith("special") || input.startsWith("sp")) {
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
           // YOUR CODE HERE
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
