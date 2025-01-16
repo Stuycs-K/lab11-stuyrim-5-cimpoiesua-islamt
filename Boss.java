@@ -33,4 +33,16 @@ public class Boss extends Adventurer{
           " points of damage.";
     }
 
+    public String specialAttack(Adventurer other) {
+      if (getSpecial() >= 12) {
+        setSpecial(getSpecial() - 12);
+        int damage = (int) (Math.random() * 2) + 13;
+        other.applyDamage(damage);
+        return this + " bat swirled on " + other +
+            " dealing " + damage + " points of damage.";
+      } else {
+        return "Not enough bats to use bat swirl. Fight some crime!" + attack(other);
+      }
+    }
+
 }
