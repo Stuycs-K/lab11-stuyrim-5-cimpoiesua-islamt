@@ -25,4 +25,12 @@ public class Boss extends Adventurer{
     return batMax;
   }
 
+  public String attack(Adventurer other) {
+      int damage = (int) (Math.random() * 5) + 3;
+      other.applyDamage(damage);
+      restoreSpecial(4);
+      return this + " punched " + other + " and dealt " + damage +
+          " points of damage.";
+    }
+
 }
