@@ -306,12 +306,12 @@ public class Game {
         // done with one party member
       } else {
         // not the party turn!
-        while (whichOpponent < enemies.size) {
+        while (whichOpponent < enemies.size()) {
         // enemy attacks a randomly chosen person with a randomly chosen attack.z`
         // Enemy action choices go here!
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-        enemies.get(whichOpponent).attack(party.get(Math.random() * 3));
+        enemies.get(whichOpponent).attack(party.get(((int)Math.random()) * 3));
         /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
         // Decide where to draw the following prompt:
