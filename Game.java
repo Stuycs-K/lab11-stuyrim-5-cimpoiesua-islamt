@@ -144,7 +144,7 @@ public class Game {
     for(int i =0; i < party.size(); i++) {
         nameDisp += party.get(i).getName() + " ";
         hpDisp = "HP: " + colorByPercent(party.get(i).getHP(), party.get(i).getmaxHP() ) + " ";
-        specialDisp = party.get(i).getSpecialName() + "; " + String.format("%2s", party.get(i).getSpecial());
+        specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
     }
     //printer
     drawText(nameDisp,startRow, 2);
@@ -224,6 +224,11 @@ public class Game {
   ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     // YOUR CODE HERE
+    int enemyCount = (int) Math.random() * 3 + 1;
+    for (int i = 0; i < enemyCount; i++){
+      party.add(createRandomAdventurer());
+    }
+
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
     // Adventurers you control:
