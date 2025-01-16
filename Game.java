@@ -301,18 +301,19 @@ public class Game {
         // done with one party member
       } else {
         // not the party turn!
-
+        while (whichOpponent < enemies.size) {
         // enemy attacks a randomly chosen person with a randomly chosen attack.z`
         // Enemy action choices go here!
         /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-        // YOUR CODE HERE
+
+        enemies.get(whichOpponent).attack(party.get(Math.random() * 3));
         /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
         // Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
 
         whichOpponent++;
-
+        }
       } // end of one enemy.
 
       // modify this if statement.
