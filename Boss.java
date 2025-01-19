@@ -45,8 +45,12 @@ public class Boss extends Adventurer{
       }
     }
 
-    public abstract String support(Adventurer other);
+    public String support(Adventurer other){
+      return "hi";
+    }
 
-    public abstract String support();
+    public String support(){
+      return "hi";
+    }
 
 }
