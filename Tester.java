@@ -8,10 +8,12 @@ public class Tester {
      * System.out.println(Game.colorByPercent(2,4));
      * System.out.println(Game.colorByPercent(1,5));
      */
-    // Game.drawBackground();
+    Game.drawBackground();
     // Game.drawText("ajfjsaljf", 1, 3);
     // Game.drawText("ajfjsaljf", 2, 4);
-    // Game.TextBox(1, 1, 10, 2, "Text will cut off in two lines");
+
+    Game.TextBox(2, 2, 10, 3, "This should get cut off and be fully formatted");
+    Text.go(32, 1);
 
   }
 }
