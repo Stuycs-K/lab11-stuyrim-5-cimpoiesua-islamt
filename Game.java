@@ -221,7 +221,7 @@ public class Game {
     ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     // YOUR CODE HERE
-    int enemyCount = (int) Math.random() * 3 + 1;
+    int enemyCount = (int) (Math.random() * 3) + 1;
     if(enemyCount == 1){
       party.add(new Boss("Boss" + (int) (Math.random() * 100), 200));
     }
@@ -230,14 +230,13 @@ public class Game {
       party.add(createRandomAdventurer());
     }
   }
-
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
     // Adventurers you control:
     // Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-    int partysize = (int) Math.random() * 3 + 2;
+    int partysize = (int) (Math.random() * 3) + 2;
     for (int i = 0; i < partysize; i++) {
       party.add(createRandomAdventurer());
     }
@@ -295,12 +294,12 @@ public class Game {
         if (whichPlayer < party.size()) {
           // This is a player turn.
           // Decide where to draw the following prompt:
-          String prompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
+          preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
 
         } else {
           // This is after the player's turn, and allows the user to see the enemy turn
           // Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
+          preprompt = "press enter to see monster's turn";
 
           partyTurn = false;
           whichOpponent = 0;
@@ -313,14 +312,13 @@ public class Game {
           // Enemy action choices go here!
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-          enemies.get(whichOpponent).attack(party.get(((int) Math.random()) * 3));
-          /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-
-          // Decide where to draw the following prompt:
-          String prompt = "press enter to see next turn";
-
+          enemies.get(whichOpponent).attack(party.get((int)(Math.random() * party.size())));
           whichOpponent++;
+          /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
         }
+          // Decide where to draw the following prompt:
+          preprompt = "press enter to see next turn";
+
       } // end of one enemy.
 
       // modify this if statement.
