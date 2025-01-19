@@ -31,13 +31,13 @@ public class Game {
     }
     Text.go(1, HEIGHT);
     for (int i = 2; i < 80; i++) {
-      Text.go(HEIGHT -4, i);
+      Text.go(HEIGHT - 4, i);
       System.out.print("-");
-      Text.go(5,i);
+      Text.go(5, i);
       System.out.print("-");
-      Text.go(9,i);
+      Text.go(9, i);
       System.out.print("-");
-      Text.go(HEIGHT , i);
+      Text.go(HEIGHT, i);
       System.out.print("-");
     }
 
@@ -93,11 +93,11 @@ public class Game {
         currentRow++;
         if (currentRow >= height)
           return;
-          if (word.length () <= width) {
-            currentLine = word;
-          } else {
-            currentLine = "";
-          }
+        if (word.length() <= width) {
+          currentLine = word;
+        } else {
+          currentLine = "";
+        }
       }
     }
 
@@ -113,13 +113,11 @@ public class Game {
   // feel free to overload this method to allow specific names/stats.
   public static Adventurer createRandomAdventurer() {
     if (Math.random() <= 0.33) {
-    return new CodeWarrior("Bob" + (int) (Math.random() * 100), 100);
-    }
-    else if (Math.random() > 0.67) {
-    return new Healer("Bob" + (int) (Math.random() * 100), 100);
-    }
-    else {
-    return new Tank("Bob" + (int) (Math.random() * 100), 170);
+      return new CodeWarrior("Bob" + (int) (Math.random() * 100), 100);
+    } else if (Math.random() > 0.67) {
+      return new Healer("Bob" + (int) (Math.random() * 100), 100);
+    } else {
+      return new Tank("Bob" + (int) (Math.random() * 100), 170);
     }
   }
 
@@ -127,6 +125,7 @@ public class Game {
    * Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
    * Should include Name HP and Special on 3 separate lines.
    * Note there is one blank row reserved for your use if you choose.
+   * jjkjlfa;fjsdj;lk
    * Format:
    * Bob Amy Jun
    * HP: 10 HP: 15 HP: 19
@@ -139,19 +138,17 @@ public class Game {
 
     String nameDisp = "";
     String hpDisp = "";
-    String specialDisp ="";
+    String specialDisp = "";
 
-    for(int i =0; i < party.size(); i++) {
-        nameDisp += party.get(i).getName() + " ";
-        hpDisp = "HP: " + colorByPercent(party.get(i).getHP(), party.get(i).getmaxHP() ) + " ";
-        specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
+    for (int i = 0; i < party.size(); i++) {
+      nameDisp += party.get(i).getName() + " ";
+      hpDisp = "HP: " + colorByPercent(party.get(i).getHP(), party.get(i).getmaxHP()) + " ";
+      specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
     }
-    //printer
-    drawText(nameDisp,startRow, 2);
-    drawText(hpDisp,startRow +1, 2);
-    drawText(specialDisp,startRow +2, 2);
-
-
+    // printer
+    drawText(nameDisp, startRow, 2);
+    drawText(hpDisp, startRow + 1, 2);
+    drawText(specialDisp, startRow + 2, 2);
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
   }
@@ -221,11 +218,11 @@ public class Game {
     // If only 1 enemy is added it should be the boss class.
     // start with 1 boss and modify the code to allow 2-3 adventurers later.
 
-  ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     // YOUR CODE HERE
     int enemyCount = (int) Math.random() * 3 + 1;
-    for (int i = 0; i < enemyCount; i++){
+    for (int i = 0; i < enemyCount; i++) {
       party.add(createRandomAdventurer());
     }
 
@@ -236,7 +233,7 @@ public class Game {
     ArrayList<Adventurer> party = new ArrayList<>();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     int partysize = (int) Math.random() * 3 + 2;
-    for (int i = 0; i < partysize; i++){
+    for (int i = 0; i < partysize; i++) {
       party.add(createRandomAdventurer());
     }
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -267,7 +264,7 @@ public class Game {
 
       // display event based on last turn's input
       if (partyTurn) {
-        String [] attackenemy = input.split(" ");
+        String[] attackenemy = input.split(" ");
         String enemytoattack = attackenemy[1];
         // Process user input for the last Adventurer:
         if (input.startsWith("attack") || input.startsWith("a")) {
@@ -307,17 +304,17 @@ public class Game {
       } else {
         // not the party turn!
         while (whichOpponent < enemies.size()) {
-        // enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        // Enemy action choices go here!
-        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+          // enemy attacks a randomly chosen person with a randomly chosen attack.z`
+          // Enemy action choices go here!
+          /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-        enemies.get(whichOpponent).attack(party.get(((int)Math.random()) * 3));
-        /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
+          enemies.get(whichOpponent).attack(party.get(((int) Math.random()) * 3));
+          /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
-        // Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
+          // Decide where to draw the following prompt:
+          String prompt = "press enter to see next turn";
 
-        whichOpponent++;
+          whichOpponent++;
         }
       } // end of one enemy.
 
