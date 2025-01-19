@@ -191,7 +191,7 @@ public class Game {
 
   public static String userInput(Scanner in) {
     // Move cursor to prompt location
-    Text.go(0, 0);
+    Text.go(HEIGHT, 2);
     // show cursor
     Text.showCursor();
 
@@ -222,9 +222,14 @@ public class Game {
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     // YOUR CODE HERE
     int enemyCount = (int) Math.random() * 3 + 1;
+    if(enemyCount == 1){
+      party.add(new Boss("Boss" + (int) (Math.random() * 100), 200));
+    }
+    else{
     for (int i = 0; i < enemyCount; i++) {
       party.add(createRandomAdventurer());
     }
+  }
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
