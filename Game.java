@@ -262,165 +262,119 @@ public class Game {
     String preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
 
     while (!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))) {
-      Text.go(29, 2);
-      Text.showCursor();
-      // Read user input
-      input = userInput(in, preprompt);
-      // example debug statment
-      TextBox(24, 2, 1, 78,
-          "input: " + input + " partyTurn:" + partyTurn + " whichPlayer=" + whichPlayer + " whichOpp=" + whichOpponent);
-
-      // display event based on last turn's input
       if (partyTurn) {
+        // Display the preprompt and read user input
+        input = userInput(in, preprompt);
+
         boolean validInput = false;
 
         while (!validInput) {
-          String[] attackenemy = input.split(" ");
-          boolean reprompt = false;
+          String[] commandParts = input.split(" ");
+          if (commandParts.length < 2) {
+            // Error message for missing target index
+            TextBox(24, 2, WIDTH - 2, 1, "Who's your target? Use 'attack (target_index)'.");
+            input = userInput(in, preprompt);
+            continue; // Ensure reprompt
+          }
 
-          // Check if the input has the correct number of parts
-          if (attackenemy.length < 2) {
-            // Error message for missing target
-            TextBox(24, 2, WIDTH - 2, 1,
-                " Who's your attack target? Use 'attack (target_index)'.");
-            reprompt = true;
-          } else {
-            String enemytoattack = attackenemy[1];
+          String command = commandParts[0];
+          String targetInput = commandParts[1];
 
-            // Process user input for the last Adventurer
-            if (input.startsWith("attack") || input.startsWith("a")) {
+          try {
+            // Parse the target index
+            int targetIndex = Integer.parseInt(targetInput);
+
+            if (command.startsWith("attack") || command.startsWith("a")) {
               /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-              try {
-                // Convert the input target index to an integer
-                int targetIndex = Integer.parseInt(enemytoattack);
-
-                // Check if the target index is in range
-                if (targetIndex < 0 || targetIndex >= enemies.size()) {
-                  // Out-of-range error
-                  TextBox(24, 2, WIDTH - 2, 1,
-                      "Thats not an enemy. You have to pick an enemy between 0 and " + (enemies.size() - 1) + ".");
-                  reprompt = true;
-                } else {
-                  // Perform the attack if input is valid
-                  String result = party.get(whichPlayer).attack(enemies.get(targetIndex));
-                  TextBox(24, 2, WIDTH - 2, 1, result);
-                  validInput = true; // Input is valid; exit the loop
-                }
-              } catch (NumberFormatException e) {
-                // Handle invalid number format
+              if (targetIndex < 0 || targetIndex >= enemies.size()) {
+                // Out-of-range error
                 TextBox(24, 2, WIDTH - 2, 1,
-                    "Your target has to be a number. Use 'attack (target_index)'.");
-                reprompt = true;
+                    "Invalid target. Choose an enemy between 0 and " + (enemies.size() - 1) + ".");
+                input = userInput(in, preprompt); // Reprompt
+              } else {
+                // Perform attack
+                String result = party.get(whichPlayer).attack(enemies.get(targetIndex));
+                TextBox(24, 2, WIDTH - 2, 1, result);
+                validInput = true; // Exit loop after successful input
               }
               /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-            } else if (input.startsWith("special") || input.startsWith("sp")) {
+            } else if (command.startsWith("special") || command.startsWith("sp")) {
               /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-              try {
-                // Convert the input target index to an integer
-                int targetIndex = Integer.parseInt(enemytoattack);
-
-                // Check if the target index is in range
-                if (targetIndex < 0 || targetIndex >= enemies.size()) {
-                  // Out-of-range error
-                  TextBox(24, 2, WIDTH - 2, 1,
-                      "Thats not an enemy. You have to pick an enemy between 0 and " + (enemies.size() - 1) + ".");
-                  reprompt = true;
-                } else {
-                  // Perform the special attack if input is valid
-                  String result = party.get(whichPlayer).specialAttack(enemies.get(targetIndex));
-                  TextBox(24, 2, WIDTH - 2, 1, result);
-                  validInput = true; // Input is valid; exit the loop
-                }
-              } catch (NumberFormatException e) {
-                // Handle invalid number format
-                TextBox(24, 2, WIDTH - 2, 1, "Your target has to be a number. Use 'special (target_index)'.");
-                reprompt = true;
+              if (targetIndex < 0 || targetIndex >= enemies.size()) {
+                // Out-of-range error
+                TextBox(24, 2, WIDTH - 2, 1,
+                    "Invalid target. Choose an enemy between 0 and " + (enemies.size() - 1) + ".");
+                input = userInput(in, preprompt); // Reprompt
+              } else {
+                // Perform special attack
+                String result = party.get(whichPlayer).specialAttack(enemies.get(targetIndex));
+                TextBox(24, 2, WIDTH - 2, 1, result);
+                validInput = true; // Exit loop after successful input
               }
               /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
-            } else if (input.startsWith("su ") || input.startsWith("support ")) {
+            } else if (command.startsWith("support") || command.startsWith("su")) {
               /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-              try {
-                // Convert the input target index to an integer
-                int targetIndex = Integer.parseInt(enemytoattack);
-
-                // Check if the target index is in range for party members
-                if (targetIndex < 0 || targetIndex >= party.size()) {
-                  // Out-of-range error
-                  TextBox(24, 2, WIDTH - 2, 1,
-                      "Thats not an enemy. You have to pick an enemy between 0 and " + (party.size() - 1) + ".");
-                  reprompt = true;
-                } else {
-                  // Perform the support action if input is valid
-                  String result = party.get(whichPlayer).support(party.get(targetIndex));
-                  TextBox(24, 2, WIDTH - 2, 1, result);
-                  validInput = true; // Input is valid; exit the loop
-                }
-              } catch (NumberFormatException e) {
-                // Handle invalid number format
-                TextBox(24, 2, WIDTH - 2, 1, "Your target has to be a number. Use 'support (target_index)'.");
-                reprompt = true;
+              if (targetIndex < 0 || targetIndex >= party.size()) {
+                // Out-of-range error for allies
+                TextBox(24, 2, WIDTH - 2, 1,
+                    "Invalid target. Choose an ally between 0 and " + (party.size() - 1) + ".");
+                input = userInput(in, preprompt); // Reprompt
+              } else {
+                // Perform support action
+                String result = party.get(whichPlayer).support(party.get(targetIndex));
+                TextBox(24, 2, WIDTH - 2, 1, result);
+                validInput = true; // Exit loop after successful input
               }
               /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
             } else {
               // Invalid command
               TextBox(24, 2, WIDTH - 2, 1, "What even is that? Use 'attack', 'special', or 'support'.");
-              reprompt = true;
+              input = userInput(in, preprompt); // Reprompt
             }
-          }
-
-          // Reprompt the user if needed
-          if (reprompt) {
-            input = userInput(in, preprompt);
+          } catch (NumberFormatException e) {
+            // Handle invalid number format
+            TextBox(24, 2, WIDTH - 2, 1, "Your target has to be a number. Use 'attack (target_index)'.");
+            input = userInput(in, preprompt); // Reprompt
           }
         }
 
-        // Progress to the next player after a valid input
+        // Move to the next player
         whichPlayer++;
-
         if (whichPlayer < party.size()) {
-          // This is a player turn
+          // This is still the player's turn
           // Decide where to draw the following prompt:
           preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
-
         } else {
           // This is after the player's turn, and allows the user to see the enemy turn
           // Decide where to draw the following prompt:
-          preprompt = "press enter to see monster's turn";
-
+          preprompt = "Press enter to see monster's turn";
           partyTurn = false;
           whichOpponent = 0;
         }
-        // Done with one party member
       } else {
-        // not the party turn!
+        // Enemy's turn
+        input = userInput(in, preprompt); // Allow the player to input, but ignore it
         while (whichOpponent < enemies.size()) {
-          // enemy attacks a randomly chosen person with a randomly chosen attack.z`
-          // Enemy action choices go here!
+          // Enemy attacks a randomly chosen person with a randomly chosen attack
+          // Enemy action choices go here
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-
-          enemies.get(whichOpponent).attack(party.get((int) (Math.random() * party.size())));
+          Adventurer target = party.get((int) (Math.random() * party.size()));
+          String result = enemies.get(whichOpponent).attack(target);
+          TextBox(24, 2, WIDTH - 2, 1, result);
           whichOpponent++;
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
         }
-        // Decide where to draw the following prompt:
-        preprompt = "press enter to see next turn";
 
-      } // end of one enemy.
-
-      // modify this if statement.
-      if (!partyTurn && whichOpponent >= enemies.size()) {
-        // THIS BLOCK IS TO END THE ENEMY TURN
-        // It only triggers after the last enemy goes.
-        whichPlayer = 0;
-        turn++;
+        // After the enemy's turn, switch back to the player's turn
+        // This block is to end the enemy turn
+        // It only triggers after the last enemy goes
         partyTurn = true;
-        // display this prompt before player's turn
-        String prompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
+        whichPlayer = 0;
+        preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
       }
 
-      // display the updated screen after input has been processed.
+      // Display the updated screen after input has been processed
       drawScreen();
-
     } // end of main game loop
 
     // After quit reset things:
