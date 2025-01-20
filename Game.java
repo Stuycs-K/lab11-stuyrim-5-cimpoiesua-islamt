@@ -135,21 +135,21 @@ public class Game {
   public static void drawParty(ArrayList<Adventurer> party, int startRow) {
 
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+    int columnWidth = (WIDTH - 2) / party.size();
 
-    String nameDisp = "";
-    String hpDisp = "";
-    String specialDisp = "";
+    for (int i = 0; i < party.size(); i++) {
+      Adventurer member = party.get(i);
 
-    for (Adventurer member : party) {
-      nameDisp += member.getName() + " ";
-      hpDisp += "HP: " + colorByPercent(member.getHP(), member.getmaxHP()) + " ";
-      specialDisp += member.getSpecialName() + ": " + member.getSpecial() + " ";
+      // spacer
+      int colPosition = (i * columnWidth) + 2;
+
+      // printer
+      drawText(String.format("%-" + columnWidth + "s", member.getName()), startRow, colPosition);
+      drawText(String.format("%-" + columnWidth + "s", "HP: " + colorByPercent(member.getHP(), member.getmaxHP())),
+          startRow + 1, colPosition);
+      drawText(String.format("%-" + columnWidth + "s", member.getSpecialName() + ": " + member.getSpecial()),
+          startRow + 2, colPosition);
     }
-
-    drawText(nameDisp, startRow, 2);
-    drawText(hpDisp, startRow + 1, 2);
-    drawText(specialDisp, startRow + 2, 2);
-
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
   }
 
@@ -182,10 +182,10 @@ public class Game {
     drawBackground();
 
     // draw player party
-    drawParty(party, 2);
+    drawParty(party, 6);
 
     // draw enemy party
-    drawParty(enemies, 7);
+    drawParty(enemies, 2);
 
   }
 
@@ -219,23 +219,22 @@ public class Game {
     // Make an ArrayList of Adventurers and add 1-3 enemies to it.
     // If only 1 enemy is added it should be the boss class.
     // start with 1 boss and modify the code to allow 2-3 adventurers later.
-
-    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    enemies.clear();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     // YOUR CODE HERE
     int enemyCount = (int) (Math.random() * 3) + 1;
     if (enemyCount == 1) {
-      party.add(new Boss("Boss" + (int) (Math.random() * 100), 200));
+      enemies.add(new Boss("Boss" + (int) (Math.random() * 100), 200));
     } else {
       for (int i = 0; i < enemyCount; i++) {
-        party.add(createRandomAdventurer());
+        enemies.add(createRandomAdventurer());
       }
     }
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
     // Adventurers you control:
     // Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
-    ArrayList<Adventurer> party = new ArrayList<>();
+    party.clear();
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     int partysize = (int) (Math.random() * 3) + 2;
     for (int i = 0; i < partysize; i++) {
