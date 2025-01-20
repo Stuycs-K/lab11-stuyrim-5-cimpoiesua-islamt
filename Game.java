@@ -298,7 +298,7 @@ public class Game {
                 if (targetIndex < 0 || targetIndex >= enemies.size()) {
                   // Out-of-range error
                   TextBox(24, 2, WIDTH - 2, 1,
-                      "Thats not an enemy. You have to pick an enemry between 0 and " + (enemies.size() - 1) + ".");
+                      "Thats not an enemy. You have to pick an enemy between 0 and " + (enemies.size() - 1) + ".");
                   reprompt = true;
                 } else {
                   // Perform the attack if input is valid
@@ -323,7 +323,7 @@ public class Game {
                 if (targetIndex < 0 || targetIndex >= enemies.size()) {
                   // Out-of-range error
                   TextBox(24, 2, WIDTH - 2, 1,
-                      "Error: Target out of range. Choose an enemy between 0 and " + (enemies.size() - 1) + ".");
+                      "Thats not an enemy. You have to pick an enemy between 0 and " + (enemies.size() - 1) + ".");
                   reprompt = true;
                 } else {
                   // Perform the special attack if input is valid
@@ -333,7 +333,7 @@ public class Game {
                 }
               } catch (NumberFormatException e) {
                 // Handle invalid number format
-                TextBox(24, 2, WIDTH - 2, 1, "Error: Target must be a number. Use 'special <target_index>'.");
+                TextBox(24, 2, WIDTH - 2, 1, "Your target has to be a number. Use 'special (target_index)'.");
                 reprompt = true;
               }
               /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
@@ -347,7 +347,7 @@ public class Game {
                 if (targetIndex < 0 || targetIndex >= party.size()) {
                   // Out-of-range error
                   TextBox(24, 2, WIDTH - 2, 1,
-                      "Error: Target out of range. Choose an ally between 0 and " + (party.size() - 1) + ".");
+                      "Thats not an enemy. You have to pick an enemy between 0 and " + (party.size() - 1) + ".");
                   reprompt = true;
                 } else {
                   // Perform the support action if input is valid
@@ -357,13 +357,13 @@ public class Game {
                 }
               } catch (NumberFormatException e) {
                 // Handle invalid number format
-                TextBox(24, 2, WIDTH - 2, 1, "Error: Target must be a number. Use 'support <target_index>'.");
+                TextBox(24, 2, WIDTH - 2, 1, "Your target has to be a number. Use 'support (target_index)'.");
                 reprompt = true;
               }
               /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
             } else {
               // Invalid command
-              TextBox(24, 2, WIDTH - 2, 1, "Error: Unknown command. Use 'attack', 'special', or 'support'.");
+              TextBox(24, 2, WIDTH - 2, 1, "What even is that? Use 'attack', 'special', or 'support'.");
               reprompt = true;
             }
           }
