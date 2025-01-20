@@ -5,8 +5,8 @@ public class Healer extends Adventurer {
 
   public Healer(String name, int hp) {
     super(name, hp);
-    int spirits = 15;
-    int spirits = spiritsmax / 2;
+    spirits = 15;
+    spirits = spiritsmax / 2;
   }
 
   public String getSpecialName() {
