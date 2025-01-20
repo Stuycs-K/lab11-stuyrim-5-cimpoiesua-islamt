@@ -259,7 +259,7 @@ public class Game {
     // Main loop
 
     // display this prompt at the start of the game.
-    String preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
+    String preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/support/quit";
 
     while (!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))) {
       if (partyTurn) {

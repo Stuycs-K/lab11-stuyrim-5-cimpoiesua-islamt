@@ -5,8 +5,8 @@ public class Healer extends Adventurer {
 
   public Healer(String name, int hp) {
     super(name, hp);
-    int foodMax = 15;
-    int food = foodMax / 2;
+    int spirits = 15;
+    int spirits = spiritsmax / 2;
   }
 
   public String getSpecialName() {
@@ -28,6 +28,7 @@ public class Healer extends Adventurer {
   public String attack(Adventurer other) {
     int healing = -1 * (int) (Math.random() * 3) + 3;
     other.applyDamage(healing);
+    restoreSpecial(3);
     return this + " healed " + other + " and healed " + healing * -1 +
         " health points.";
   }
