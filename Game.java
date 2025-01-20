@@ -198,8 +198,10 @@ public class Game {
     String input = in.nextLine();
 
     // clear the text that was written
-
-    return input;
+    if (input.isEmpty() || !input.matches("[a-zA-Z0-9 ]+")) {
+      return "Invalid input. Try again.";
+    }
+    return input.trim();
   }
 
   public static void quit() {
@@ -222,14 +224,13 @@ public class Game {
     /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
     // YOUR CODE HERE
     int enemyCount = (int) (Math.random() * 3) + 1;
-    if(enemyCount == 1){
+    if (enemyCount == 1) {
       party.add(new Boss("Boss" + (int) (Math.random() * 100), 200));
+    } else {
+      for (int i = 0; i < enemyCount; i++) {
+        party.add(createRandomAdventurer());
+      }
     }
-    else{
-    for (int i = 0; i < enemyCount; i++) {
-      party.add(createRandomAdventurer());
-    }
-  }
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
 
     // Adventurers you control:
@@ -312,12 +313,12 @@ public class Game {
           // Enemy action choices go here!
           /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 
-          enemies.get(whichOpponent).attack(party.get((int)(Math.random() * party.size())));
+          enemies.get(whichOpponent).attack(party.get((int) (Math.random() * party.size())));
           whichOpponent++;
           /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
         }
-          // Decide where to draw the following prompt:
-          preprompt = "press enter to see next turn";
+        // Decide where to draw the following prompt:
+        preprompt = "press enter to see next turn";
 
       } // end of one enemy.
 
