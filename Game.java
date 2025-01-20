@@ -140,12 +140,12 @@ public class Game {
     String hpDisp = "";
     String specialDisp = "";
 
-    for (int i = 0; i < party.size(); i++) {
-      nameDisp += party.get(i).getName() + " ";
-      hpDisp = "HP: " + colorByPercent(party.get(i).getHP(), party.get(i).getmaxHP()) + " ";
-      specialDisp = party.get(i).getSpecialName() + ": " + String.format("%2s", party.get(i).getSpecial());
+    for (Adventurer member : party) {
+      nameDisp += member.getName() + " ";
+      hpDisp += "HP: " + colorByPercent(member.getHP(), member.getmaxHP()) + " ";
+      specialDisp += member.getSpecialName() + ": " + member.getSpecial() + " ";
     }
-    // printer
+
     drawText(nameDisp, startRow, 2);
     drawText(hpDisp, startRow + 1, 2);
     drawText(specialDisp, startRow + 2, 2);
