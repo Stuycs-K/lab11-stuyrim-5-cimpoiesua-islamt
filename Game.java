@@ -22,6 +22,8 @@ public class Game {
     for (int i = 1; i < 81; i++) {
       Text.go(1, i);
       System.out.print("-");
+      Text.go(30, i);
+      System.out.print("-");
     }
     for (int i = 2; i < HEIGHT + 1; i++) {
       Text.go(i, 1);
@@ -29,17 +31,7 @@ public class Game {
       Text.go(i, 80);
       System.out.print("|");
     }
-    Text.go(1, HEIGHT);
-    for (int i = 2; i < 80; i++) {
-      Text.go(HEIGHT - 4, i);
-      System.out.print("-");
-      Text.go(5, i);
-      System.out.print("-");
-      Text.go(9, i);
-      System.out.print("-");
-      Text.go(HEIGHT, i);
-      System.out.print("-");
-    }
+    Text.reset();
 
     /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
   }
@@ -178,7 +170,6 @@ public class Game {
   // Place the cursor at the place where the user will by typing their input at
   // the end of this method.
   public static void drawScreen() {
-    Text.reset();
     drawBackground();
     
 
@@ -288,7 +279,7 @@ public class Game {
           try{
             actionOn = Integer.parseInt(input.substring(input.length()-1));
             if(actionOn >= enemies.size()){
-              result = "Invalid target. Choose an enemy between 0 and " + (enemies.size() - 1) + ".");
+              result = "Invalid target. Choose an enemy between 0 and " + (enemies.size() - 1) + ".";
             }
             else{
               result = (party.get(whichPlayer)).attack(enemies.get(actionOn));
@@ -340,7 +331,7 @@ public class Game {
               }
             }
           }catch(NumberFormatException ex){
-            result = "Invalid target. Choose an ally between 0 and \" + (party.size() - 1) + \".";
+            result = "Invalid target. Choose an ally between 0 and " + (party.size() - 1) + ".";
           }
           
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
