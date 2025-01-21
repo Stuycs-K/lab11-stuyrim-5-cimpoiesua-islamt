@@ -16,6 +16,20 @@ Make a clear list of features that work/dont work
 :beetle: This is a bug that affects the game.
 
 
+- **Random Game Setup** ✅
+- **Terminal Arguments** ✅
+- **Draw Screen** ✅
+- **Draw Text** ✅
+- **Text Box** ✅
+- **Color by Percent** ✅
+- **Draw Party** ✅
+- **Draw Background** ✅
+- **Tank Class** ✅
+- **Boss Class** ✅
+- **Healer Class** ✅
+- **Run Game** ✅
+
+
 
 ## Adventurer Subclasses
 
